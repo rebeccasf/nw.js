@@ -346,8 +346,7 @@ if (is_win && !is_component_build) {
 if (is_mac && !is_component_build) {
   group("dump") {
     testonly = true
-    deps = [ "//third_party/breakpad:dump_syms",
-             "//chrome",
+    deps = [ "//chrome",
              ":copy_node",
              ":payload",
              "//v8:nwjc",
@@ -387,7 +386,6 @@ if (is_linux && !is_component_build) {
       inputs = [
         "$root_build_dir/dump_syms",
       ]
-      deps += [ "//third_party/breakpad:dump_syms" ]
     } else {
       inputs = [
         "tools/dump_syms",
@@ -435,9 +433,6 @@ if (!is_component_build) {
       "-i", "$icudat_path"
     ]
     deps = [ "//components/resources:about_credits_nw" ]
-    if (nwjs_sdk && (is_mac || is_linux)) {
-      deps += [ "//third_party/breakpad:minidump_stackwalk" ]
-    }
   }
   if (nwjs_sdk) {
     action("nwtest") {
