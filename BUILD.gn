@@ -387,10 +387,10 @@ if (is_linux && !is_component_build) {
         "tools/dump_syms",
       ]
     }
-    if (enable_nacl) {
-      sources += [ "$root_build_dir/nacl_helper" ]
-      deps += [ "//components/nacl/loader:nacl_helper" ]
-    }
+    #if (enable_nacl) {
+    #  sources += [ "$root_build_dir/nacl_helper" ]
+    #  deps += [ "//components/nacl/loader:nacl_helper" ]
+    #}
     outputs = [
       "$root_build_dir/{{source_name_part}}.sym"
     ]
